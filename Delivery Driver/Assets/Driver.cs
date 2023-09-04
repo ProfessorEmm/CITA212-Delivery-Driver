@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class Driver : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class Driver : MonoBehaviour
 
     void Update()
     {
-       transform.Rotate(0, 0, fltSteerSpeed);
-       transform.Translate(0, fltMoveSpeed, 0);
+       float fltSteerAmount = UnityEngine.Input.GetAxis("Horizontal") * fltSteerSpeed;
+       float fltMoveAmount = UnityEngine.Input.GetAxis("Vertical") * fltMoveSpeed;
+        transform.Rotate(0, 0, -fltSteerAmount);
+       transform.Translate(0, fltMoveAmount, 0);
     }
 }
