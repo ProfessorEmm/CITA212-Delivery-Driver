@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Trigger!");
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("There was a collision!");
