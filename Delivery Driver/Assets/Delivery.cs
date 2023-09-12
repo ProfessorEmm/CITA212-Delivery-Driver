@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision : MonoBehaviour
+public class Delivery   : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger!");
+        if (other.tag == "Package")
+        {
+            Debug.Log("Package collected!");
+        }
+
+        if (other.tag == "Customer")
+        {
+            Debug.Log("Package delivered!");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
